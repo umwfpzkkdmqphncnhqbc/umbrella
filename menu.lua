@@ -14,7 +14,7 @@ local library = {
         table.clear(self)
     end,
 
-    theme = {
+    theme = config.theme or {
         text = {255, 255, 255},
         accent = {128, 142, 166},
         accent2 = {76, 86, 100},
@@ -438,8 +438,8 @@ library.toggle = function(self, cfg)
         Size = {1, -2, 1, -2},
         Position = {0, 1, 0, 1},
         Thickness = 1,
-        Transparency = 1,
-        Visible = false,
+        Transparency = 0,
+        Visible = true,
         Filled = true,
         Parent = outline1
     })
@@ -449,8 +449,8 @@ library.toggle = function(self, cfg)
         Size = {1, -2, 1, -2},
         Position = {0, 1, 0, 1},
         Thickness = 1,
-        Transparency = 1,
-        Visible = false,
+        Transparency = 0,
+        Visible = true,
         Filled = true,
         Parent = accent2
     })
@@ -477,8 +477,8 @@ library.toggle = function(self, cfg)
     })
 
     function toggle.set(boolean)
-        accent1.Visible = boolean
-        accent2.Visible = boolean
+        accent1.Transparency = boolean == true and 1 or 0
+        accent2.Transparency = boolean == true and 1 or 0
 
         toggle.state = boolean
 
