@@ -635,4 +635,4 @@ library.slider = function(self, cfg)
 end
 
 spawn(handler)
-return library
+return library, library.flags
